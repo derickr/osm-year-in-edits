@@ -2,7 +2,7 @@
 $base = 'http://planet.openstreetmap.org/replication/hour/000/';
 $baseFile = '/backup/osm/year-in-edits-2012/changes/odbl/';
 $start = 0;
-$end   = 1;
+$end   = 2;
 
 for ($i = $start; $i <= $end; $i++) {
 	$d = sprintf("%03d", $i);

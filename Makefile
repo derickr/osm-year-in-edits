@@ -46,8 +46,8 @@ yearinedits-full-2:
 	povray -Iyearinedits2.pov Final_Frame=1465 +KI0 +KF366 Subset_Start_Frame=1162 Subset_End_Frame=1466 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
 
 yearinedits-fix-up:
-	povray -Iyearinedits1.pov Final_Frame=1465 +KI0 +KF366 Subset_Start_Frame=1256 Subset_End_Frame=1466 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
-	povray -Iyearinedits2.pov Final_Frame=1465 +KI0 +KF366 Subset_Start_Frame=1256 Subset_End_Frame=1466 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits1.pov Final_Frame=1465 +KI0 +KF366 Subset_Start_Frame=1440 Subset_End_Frame=1466 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1465 +KI0 +KF366 Subset_Start_Frame=1440 Subset_End_Frame=1466 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
 
 nld:
 	povray -Inld.pov +K25 -Ooutput/nld ${SIZE_BIG} ${OPTIONS}

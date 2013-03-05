@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd output
+
 for i in `php -r 'echo join(" ", range(0, 100));'`; do
 	nr=`php -r "echo min(100, 200 - ($i * 2));"`
 	fn=`php -r "printf('%04d', $i);"`
