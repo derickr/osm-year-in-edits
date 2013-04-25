@@ -21,7 +21,8 @@ sphere {
 
 camera{
 #if (clock < 180)
-  location <0 ,0, min(18000, 10000 + (clock * 80))> // 0, 20000, -40000
+  location <0 ,0, max(10000, 22500 - (clock * 100))> // 0, 20000, -40000
+#warning concat("Clock: ", str(clock, 0, 2), " CAM: ", str(max(10000, 22500 - (clock * 100)), 0, 2),"\n" )
 #else
   location <0 ,0, 15000 + 3000 * cos(((clock-180) * 2) * (pi / 180))>
 #warning concat("Clock: ", str(clock-180, 0, 2), " CAM: ", str(15000 + 3000 * cos(((clock-180) * 2) * (pi / 180)), 9, 2), " COS: ", str(cos(((clock-180) * 2) * (pi / 180)), 5, 3),"\n")
@@ -103,5 +104,5 @@ union {
 	}
 }
 
-object {Earth rotate <0,-clock * 2 + 70,30 + 20*cos((clock-90)/50)>}
+object {Earth rotate <0, -50 - clock/7, -4 - clock/4>}
 

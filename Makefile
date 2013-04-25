@@ -23,6 +23,37 @@ demo:
 demo-small:
 	povray -Iearth.pov +K100 -Ooutput/demo_s ${SIZE_BIG} ${OPTIONS}
 
+argentina: argentina1 argentina2
+
+argentina-test:
+	#povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=1 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS}
+	#povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=439 Subset_End_Frame=439 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS}
+	#povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=1 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS}
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=439 Subset_End_Frame=439 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS}
+
+argentina1:
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=146 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=147 Subset_End_Frame=292 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=293 Subset_End_Frame=439 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+
+argentina2:
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=110 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=111 Subset_End_Frame=220 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=221 Subset_End_Frame=330 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=331 Subset_End_Frame=439 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+
+mali: mali1 mali2
+
+mali1:
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=85 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=86 Subset_End_Frame=170 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits1.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=171 Subset_End_Frame=256 -Ooutput/yearinedits-1- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+
+mali2:
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=1 Subset_End_Frame=85 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=86 Subset_End_Frame=170 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+	povray -Iyearinedits2.pov Final_Frame=1461 +KI0 +KF365 Subset_Start_Frame=171 Subset_End_Frame=256 -Ooutput/yearinedits-2- ${SIZE_ULTRA_BIG} ${OPTIONS} &
+
 yearinedits-full: yearinedits-redaction-bot yearinedits-full-1 yearinedits-full-2
 
 yearinedits-redaction-bot: yearinedits-redaction-bot-1 yearinedits-redaction-bot-2

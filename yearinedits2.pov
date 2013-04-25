@@ -20,22 +20,13 @@ sphere {
 }
 
 camera{
-#if (clock > 313)
- location <0 ,0, min(80000, max(18000, 18000 + ((clock-313) * 2232))) > // 0, 20000, -40000
- look_at  <max(-25000, min(0, 0 - ((clock-313) * 900))), max(-16666, min(0, 0 - ((clock-313) * 600))),0>
+#if (clock < 180)
+  location <0 ,0, min(25000, 10000 + (clock * 10))> // 0, 20000, -40000
 #else
- #if (clock < 200)
-  location <0 ,0, 18000> // 0, 20000, -40000
- #else
-  #if (clock > 290)
-   location <0 ,0, 18000> // 0, 20000, -40000
-  #else
-   location <0 ,0, 16000 + 2000 * cos(((clock-200) * 4) * (pi / 180))>
-   #warning concat("Clock: ", str(clock-200, 0, 2), " CAM: ", str(15000 + 3000 * cos(((clock-200) * 4) * (pi / 180)), 9, 2), " COS: ", str(cos(((clock-200) * 4) * (pi / 180)), 5, 3),"\n")
-  #end
- #end
- look_at  <0,0,0>
+  location <0 ,0, 15000 + 3000 * cos(((clock-180) * 2) * (pi / 180))>
+#warning concat("Clock: ", str(clock-180, 0, 2), " CAM: ", str(15000 + 3000 * cos(((clock-180) * 2) * (pi / 180)), 9, 2), " COS: ", str(cos(((clock-180) * 2) * (pi / 180)), 5, 3),"\n")
 #end
+  look_at  <0,0,0>
   rotate <0,-90,0>
   right x*1280/768
 }
@@ -112,5 +103,5 @@ union {
 	}
 }
 
-object {Earth rotate <0,160-clock,-5 + 30*sin((clock)/35)>}
+object {Earth rotate <0, -60 - clock/10, -50 + clock/8>}
 
