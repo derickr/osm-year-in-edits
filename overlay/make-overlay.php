@@ -2,6 +2,7 @@
 require dirname( __FILE__ ) . '/../../osm-tools/lib/convert.php';
 define('WIDTH', 1280);
 define('HEIGHT', 720);
+define('YEAR', 2013);
 date_default_timezone_set('UTC');
 
 function drawAxis($img)
@@ -10,7 +11,7 @@ function drawAxis($img)
 
 	$x = 100;
 	$y = HEIGHT - 32;
-	$sdate = strtotime( "2012-01-01 00:00 UTC" );
+	$sdate = strtotime( YEAR . "-01-01 00:00 UTC" );
 
 	for ( $i = 0; $i < 366; $i++ )
 	{
@@ -36,10 +37,10 @@ function drawProgress($img, $days)
 	$y = HEIGHT - 32;
 
 	$redDayStart = 0;
-	$redDayEnd   = min( 91, $days );
+	$redDayEnd   = $days;
 
 	imagefilledrectangle($img, $x + $redDayStart, $y + 2, $x + $redDayEnd, $y + 10, $red);
-
+/*
 	if ($days > 91) {
 		$yellowDayStart = 92;
 		$yellowDayEnd   = min( 255, $days );
@@ -53,12 +54,12 @@ function drawProgress($img, $days)
 			imagefilledrectangle($img, $x + $greenDayStart, $y + 2, $x + $greenDayEnd, $y + 10, $green);
 		}
 	}
-
+*/
 	imageline($img, $x + $days, $y - 20, $x + $days, $y + 10, $needle);
 }
 
 $start = 0;
-$end   = 366 * 4;
+$end   = 365 * 4;
 
 for ($i = $start; $i < $end; $i++)
 {

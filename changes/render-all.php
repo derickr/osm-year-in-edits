@@ -1,10 +1,10 @@
 <?php
 require dirname( __FILE__ ) . '/../../osm-tools/lib/convert.php';
-define('WIDTH', 1440 * 4);
-define('HEIGHT', 720 * 4);
+define('WIDTH', 1440 * 8);
+define('HEIGHT', 720 * 8);
+define("YEAR", 2013);
 date_default_timezone_set('UTC');
-ini_set( 'memory_limit', '2G' );
-echo ini_get( 'memory_limit' ), "\n";
+ini_set( 'memory_limit', '4G' );
 $forceParse = false;
 $force = false;
 $forceRender = false;
@@ -72,25 +72,9 @@ end:
 
 function nameMap( $i )
 {
-	if ($i >= 0 && $i <= 2191) {
-		$off = $i + 18531;
-		return array( 'dir' => 'cc-by-sa', 'series' => (int) $off / 1000, 'seq' => $off % 1000 );
-	}
-	if ($i >= 2192 && $i <= 2265) {
-		return array( 'dir' => 'dummy', 'series' => 0, 'seq' => 0 );
-	}
-	if ($i >= 2266 && $i <= 2266 + 3860) {
-		$off = $i - 2265;
-		if ( $off >= 188 ) {
-			$off++;
-		}
-		return array( 'dir' => 'redaction-period', 'series' => (int) $off / 1000, 'seq' => $off % 1000 );
-	}
-	if ($i == 6127) {
-		return array( 'dir' => 'dummy', 'series' => 0, 'seq' => 0 );
-	}
-	if ($i >= 6128 && $i <= 366 * 24) {
-		$off = $i - 6126;
+	// jan 1, 0 = 2657
+	if ($i >= 0 && $i <= 366 * 24) {
+		$off = $i + 2657;
 		return array( 'dir' => 'odbl', 'series' => (int) $off / 1000, 'seq' => $off % 1000 );
 	}
 	return false;
@@ -109,7 +93,7 @@ for ($i = 0; $i < 366 * 24; $i += 6)
 		$fn = sprintf("%s/%03d/%03d.osc.gz", $finfo['dir'], $finfo['series'], $finfo['seq']);
 		if ( $finfo && ( $finfo['dir'] == 'dummy' || file_exists( $fn ) ) )
 		{
-			$ts = date_create( "2012-01-01 00:00 UTC " )->modify( "+ $c hours" );
+			$ts = date_create( YEAR . "-01-01 00:00 UTC " )->modify( "+ $c hours" );
 			$parsedFileName = sprintf( 'change-%05d.json', $c );
 			echo $ts->format( 'Y-m-d H' ), ": " . $fn, "\n";
 
