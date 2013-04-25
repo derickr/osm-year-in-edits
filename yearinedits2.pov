@@ -75,20 +75,20 @@ union {
 #warning concat("Value is:",str(clock * 4, 4, 4),"\n")
 #if ((10000 + clock * 4) <= 11466)
       sphere {0, 6380.00001
-        pigment {image_map {concat("/backup/osm/year-in-edits-2012/changes/0", str(10000 + clock * 4, 0, 0), ".png") map_type 1 interpolate 2}}
+        pigment {image_map {concat("/backup/osm/year-in-edits-2013/changes/0", str(10000 + clock * 4, 0, 0), ".png") map_type 1 interpolate 2}}
         finish {ambient 2 diffuse 1}
       }
 #end
 
 #if ((clock * 4) >= 770)
 	#if ((clock * 4) <= 851)
-		#include concat("/backup/osm/year-in-edits-2012/changes/povs/log", str(clock * 4, 0, 0), ".pov")
+		#include concat("/backup/osm/year-in-edits-2013/changes/povs/log", str(clock * 4, 0, 0), ".pov")
 	#end
 #end
 
 #if ((clock * 4) >= 1020)
 	#if ((clock * 4) <= 1120)
-		#include concat("/backup/osm/year-in-edits-2012/changes/povs/odbl", str(clock * 4, 0, 0), ".pov")
+		#include concat("/backup/osm/year-in-edits-2013/changes/povs/odbl", str(clock * 4, 0, 0), ".pov")
 	#end
 #end
 
