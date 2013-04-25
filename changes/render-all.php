@@ -8,8 +8,14 @@ ini_set( 'memory_limit', '4G' );
 $forceParse = false;
 $force = false;
 $forceRender = false;
+$mask = false;
 
-mkdir( 'json-tmp', true );
+if ( $argc == 2 )
+{
+	$mask = imagecreatefrompng( $argv[2] );
+}
+
+@mkdir( 'json-tmp', 0777, true );
 
 function createNewFrame()
 {
@@ -211,7 +217,18 @@ for ($i = 0; $i < 366 * 24; $i += 6)
 					default:
 						$color = $decay[(int) $value];
 				}
-				imagesetpixel( $img, $x, $y, $color );
+				if ( $x < WIDTH && $y < HEIGHT )
+				{
+					$maskC = 1;
+					if ( $GLOBALS['mask'] )
+					{
+						$maskC = imagecolorat( $GLOBALS['mask'], $x, $y );
+					}
+					if ($maskC != 0)
+					{
+						imagesetpixel( $img, $x, $y, $color );
+					}
+				}
 			}
 		}
 		imagepng( $img, $imageFileName );
