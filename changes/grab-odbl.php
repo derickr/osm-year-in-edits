@@ -1,8 +1,8 @@
 <?php
 $base = 'http://planet.openstreetmap.org/replication/hour/000/';
-$baseFile = '/backup/osm/year-in-edits-2012/changes/odbl/';
-$start = 0;
-$end   = 2;
+$baseFile = '/backup/osm/year-in-edits-2013/changes/odbl/';
+$start = 2;
+$end   = 5;
 
 for ($i = $start; $i <= $end; $i++) {
 	$d = sprintf("%03d", $i);
